@@ -12,8 +12,8 @@ __author__ = "John Christopher Sloan"
 
 import random
 
-from skills import Attempt, Flow
-from climbers import Climber
+from skills import Attempt
+from climbers import Climber, Route
 
 class Game:
     def __init__(self, player1, player2):
@@ -24,7 +24,7 @@ class Game:
         print('Welcome to the Red River Gorge Climbing Game')
         print(self.p1)
         print(self.p2)
-        while self.p1.is_alive and self.p2.is_alive:
+        while self.p1.is_alive and self.p2.unsent:
             if random.choice([True, False]):
                 attacker = self.p1
                 defender = self.p2
@@ -32,7 +32,7 @@ class Game:
                 attacker = self.p2
                 defender = self.p1
             dmg, sound = attacker.weapon.redpoint_attempt()
-            print(attacker.name, 'attacks:', sound)
+            print(attacker.name, 'tries to', sound)
             print(attacker.name, 'did', dmg, 'damage')
             defender.take_hit(dmg)
         print(attacker.name, 'won with', attacker.health, 'health left')
@@ -40,5 +40,5 @@ class Game:
 
 if __name__ == '__main__':
     random.seed()
-    g = Game(Climber('Climber', Attempt()), Climber('Route', Attempt()))
+    g = Game(Climber('Climber', Attempt()), Route('Route', Attempt()))
     g.run()

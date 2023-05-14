@@ -7,6 +7,8 @@ Welcome to rrg_climbing_game's documentation!
 =============================================
 
 This project is an ongoing project to create a game that simulates climbing.
+The routes and their information will come from 'Red River Climbing <https://app.redriverclimbing.com/tabs/tab2>'
+
 
 Objective of the game
 ----------------------
@@ -23,9 +25,7 @@ CRAGS are sorted into AREAS within the RED RIVER GORGE.
 Each ROUTE has its own characteristics and qualities that result in its overall difficulty.
 The CLIMBERS skills and tactics are compared to the routes difficulty to determine if the climber will SEND the route.
 
-.. toctree::
-   :maxdepth: 2
-   :caption: Contents:
+.. include:: modules.rst 
 
 
 

@@ -17,11 +17,31 @@ from climbers import Climber, Route
 
 
 class Game:
+    """
+    The Game class implements the game mechanics. To understand the way the
+    game works, read the documentation for the :meth:'run' method.
+    """
     def __init__(self, player1, player2):
+        """
+        Create a new game with two players.
+
+        :param player1: First player
+        :type player1: :class:`Climber`
+        :param player2: Second player
+        :type player2: :class:`Route`
+        """
         self.p1 = player1
         self.p2 = player2
 
     def run(self):
+        """
+        This method implements the game mechanics. The game loops until
+        one of the players runs out of health. Every turn, one of the players
+        is randomly chosen to attack. We call the :meth: 'skills.redpoint_attempt' method
+        on that players skills. The damage dealt by this skill is applied to the player
+        by calling :meth: 'climbers.Climber.take_hit'.
+
+        """
         print("Welcome to the Red River Gorge Climbing Game")
         print(self.p1)
         print(self.p2)

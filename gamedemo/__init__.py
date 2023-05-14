@@ -1,6 +1,6 @@
 """
 Red River Gorge : Rock Climbing
-~~~~~~~~~~~~~~~~~~
+~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~
 This was adapted from a pluralsight tutorial < 'https://app.pluralsight.com/library/courses/python-best-practices-code-quality/table-of-contents' >
 
 The idea is to simulate a very simple role-playing game where a climber is working on climbing a route. 

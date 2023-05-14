@@ -5,7 +5,8 @@ _________
 This module contains the Climber class that represents game characters.
 """
 
-__author__ = 'John Christopher Sloan'
+__author__ = "John Christopher Sloan"
+
 
 class Climber:
     """
@@ -20,17 +21,18 @@ class Climber:
     def take_hit(self, damage):
         self.health -= damage
         return self.health
-    
+
     @property
     def is_alive(self):
         """True if :attr: 'health' is larger than 0, False otherwise"""
         return self.health > 0
-    
+
     def __str__(self):
         return "{} has {} health and bring his {} to the fight".format(
             self.name, self.health, type(self.weapon).__name__
         )
-    
+
+
 class Route:
     """
     The Route class represents the route the climber is trying to climb
@@ -44,12 +46,12 @@ class Route:
     def take_hit(self, damage):
         self.health -= damage
         return self.health
-    
+
     @property
     def unsent(self):
         """True if :attr: 'health' is larger than 0, False otherwise"""
         return self.health > 0
-    
+
     def __str__(self):
         return "{} is still standing with {} left to climb".format(
             self.name, self.health

@@ -30,7 +30,11 @@ class Attempt(Skills):
         return (
             random.choice([10, 15]),
             random.choice(
-                ["Dyno for the jug", "Crimp for dear life", "Kneebar the way through a crux"]
+                [
+                    "Dyno for the jug",
+                    "Crimp for dear life",
+                    "Kneebar the way through a crux",
+                ]
             ),
         )
 

@@ -12,7 +12,7 @@ import random
 
 
 class Skills(ABC):
-    """This abstract class defines the method :meth: 'tryhard' that should be implemented by subclasses."""
+    """This abstract class defines the method :meth: 'redpoint_attempt' that should be implemented by subclasses."""
 
     @abstractmethod
     def redpoint_attempt(self, other):
@@ -23,7 +23,7 @@ class Skills(ABC):
 
 class TryHard(Skills):
     """This class is the subclass of :class: 'Skills'
-    It represents the hold type the climber will implement to get through the route.
+    It represents the skill type the climber will implement to get through the route.
     """
 
     def redpoint_attempt(self):
@@ -32,7 +32,7 @@ class TryHard(Skills):
             random.choice(
                 [
                     "dyno for a jug!",
-                    "gull crimp",
+                    "full crimp",
                     "a creative kneebar rest",
                     "good beta"
                 ]
@@ -40,15 +40,17 @@ class TryHard(Skills):
         )
 
 class RouteDefense(Skills):
-    """This class is the subclass of :class: 'Skills'"""
+    """This class is the subclass of :class: 'Skills'
+    It represents the attribute of the route that determines the routes difficulty. 
+    """
     def redpoint_attempt(self):
         return(
             random.choice([10, 15]),
             random.choice(
                 [
-                    "Sneaky missed hold.",
-                    "Missed kneebar, for recovery.",
-                    "Ohhh SO Pumped!"
+                    "sneaky missed hold.",
+                    "missed kneebar.",
+                    "ohhh SOOOO pumped!"
                 ]
             )
         )

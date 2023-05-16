@@ -48,15 +48,28 @@ class Climber:
 
 class Route:
     """
-    The Route class represents the route the climber is trying to climb
+    The Route class represents the route the climber is trying to climb.
+    :ivar health: The current health of the route. Starts at 100.
+    Once the health reaches 0 the route has been sent by the climber.
     """
 
     def __init__(self, name, attribute):
+        """
+        Create a new Route
+        :param name: The name of the Route.
+        :param attribute: Is the attribute the route has that determines the difficulty of the Route.
+        """
         self.name = name
         self.attribute = attribute
         self.health = 100
 
     def take_hit(self, damage):
+        """
+        This method gets called when the Route takes a hit from the Climber.
+        :param damage: The damage the route takes. This will be subtracted from
+        :attr:'health'.
+        :return: The new value of :attr: health
+        """
         self.health -= damage
         return self.health
 

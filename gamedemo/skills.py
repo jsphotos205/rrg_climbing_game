@@ -28,13 +28,18 @@ class TryHard(Skills):
 
     def redpoint_attempt(self):
         return (
-            random.choice([10, 15, 25, 50]),
+            random.randrange(1, 10),
+            # random.choice([5, 10, 15, 25, 50]),
             random.choice(
                 [
-                    "dyno for a jug!",
+                    "dyno for a jug",
                     "full crimp",
                     "a creative kneebar rest",
-                    "good beta"
+                    "good beta",
+                    "sick mono-pocket",
+                    "heel hook",
+                    "sneaky rest to recover",
+                    "RECOVER!"
                 ]
             ),
         )
@@ -45,12 +50,23 @@ class RouteDefense(Skills):
     """
     def redpoint_attempt(self):
         return(
-            random.choice([10, 15]),
+            random.randrange(1,10),
+            # random.choice([10, 15, 5, 20, 2, ]),
             random.choice(
                 [
                     "sneaky missed hold.",
-                    "missed kneebar.",
-                    "ohhh SOOOO pumped!"
+                    "left halfpad crimp",
+                    "right halfpad crimp",
+                    "sloper",
+                    "razorblade crimp",
+                    "credit card thin crimp",
+                    "choss paddling",
+                    "missed kneebar",
+                    "pumpy climbing",
+                    "choss",
+                    "crumbly feet",
+                    "hard to read beta",
+                    "holds that are a bit too far"
                 ]
             )
         )

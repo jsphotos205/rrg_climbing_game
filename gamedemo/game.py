@@ -42,11 +42,18 @@ class Game:
         by calling :meth: 'climbers.Climber.take_hit'.
 
         """
+        print()
+        print()
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("Welcome to the Red River Gorge Climbing Game")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        print(self.p1)
-        print(self.p2)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print()
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print()
+        print(self.p1.name, "is going to give", self.p2.name, "some good redpoint attempts")
+        print()
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         while self.p1.is_alive and self.p2.unsent:
             if random.choice([True, False]):
@@ -56,17 +63,29 @@ class Game:
                 attacker = self.p2
                 defender = self.p1
             dmg, sound = attacker.attribute.redpoint_attempt()
-            print("The", attacker.name, "deals", sound)
-            print("The", attacker.name, "did", dmg, "damage to the", defender.name)
+            print(attacker.name, "deals", sound)
+            print(attacker.name, "did", dmg, "points of damage to the", defender.name)
             defender.take_hit(dmg)
-            print(attacker.name, "has", attacker.health, "health")
-            print(defender.name, "has", defender.health, "health")
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+            print("HEALTH UPDATE :")
+            print()
+            print(attacker.name, "has", attacker.health, "health!")
+            print(defender.name, "now has", defender.health, "health!")
+            print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-        print("The", attacker.name, "won with", attacker.health, "health left")
         print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
-
+        print(attacker.name, "won with", attacker.health, "health left")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print()
+        print()
+        print("Thanks for playing!")
 
 if __name__ == "__main__":
     random.seed()
-    g = Game(Climber("Climber", TryHard()), Route("Route", RouteDefense()))
-    g.run()
+    climber_name = input("Enter the name of the climber: ")
+    route_name = input("Enter the name of the route: ")
+    climber = Climber(climber_name, TryHard())
+    route = Route(route_name, RouteDefense())
+    game = Game(climber, route)
+    game.run()

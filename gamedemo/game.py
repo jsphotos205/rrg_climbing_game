@@ -12,7 +12,7 @@ __author__ = "John Christopher Sloan"
 
 import random
 
-from skills import Attempt
+from skills import TryHard, RouteDefense
 from climbers import Climber, Route
 
 
@@ -42,9 +42,12 @@ class Game:
         by calling :meth: 'climbers.Climber.take_hit'.
 
         """
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print("Welcome to the Red River Gorge Climbing Game")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         print(self.p1)
         print(self.p2)
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
         while self.p1.is_alive and self.p2.unsent:
             if random.choice([True, False]):
                 attacker = self.p1
@@ -52,14 +55,18 @@ class Game:
             else:
                 attacker = self.p2
                 defender = self.p1
-            dmg, sound = attacker.weapon.redpoint_attempt()
-            print(attacker.name, "tries to", sound)
-            print(attacker.name, "did", dmg, "damage")
+            dmg, sound = attacker.attribute.redpoint_attempt()
+            print("The", attacker.name, "deals", sound)
+            print("The", attacker.name, "did", dmg, "damage to the", defender.name)
             defender.take_hit(dmg)
-        print(attacker.name, "won with", attacker.health, "health left")
+            print(attacker.name, "has", attacker.health, "health")
+            print(defender.name, "has", defender.health, "health")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
+        print("The", attacker.name, "won with", attacker.health, "health left")
+        print("~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~")
 
 
 if __name__ == "__main__":
     random.seed()
-    g = Game(Climber("Climber", Attempt()), Route("Route", Attempt()))
+    g = Game(Climber("Climber", TryHard()), Route("Route", RouteDefense()))
     g.run()

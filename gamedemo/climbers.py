@@ -15,14 +15,14 @@ class Climber:
     Once the health reaches 0 the climber falls off the route.
     """
 
-    def __init__(self, name, weapon):
+    def __init__(self, name, attribute):
         """
         Create a new Climber
         :param name: The name of the Climber.
-        :param weapon: Is the skill the climber chooses to use.
+        :param attribute: Is the skill the climber chooses to use.
         """
         self.name = name
-        self.weapon = weapon
+        self.attribute = attribute
         self.health = 100
 
     def take_hit(self, damage):
@@ -41,8 +41,8 @@ class Climber:
         return self.health > 0
 
     def __str__(self):
-        return "{} has {} health and bring his {} to the fight".format(
-            self.name, self.health, type(self.weapon).__name__
+        return "The {} has {} health and brings his {} to the climb!".format(
+            self.name, self.health, type(self.attribute).__name__
         )
 
 
@@ -51,9 +51,9 @@ class Route:
     The Route class represents the route the climber is trying to climb
     """
 
-    def __init__(self, name, weapon):
+    def __init__(self, name, attribute):
         self.name = name
-        self.weapon = weapon
+        self.attribute = attribute
         self.health = 100
 
     def take_hit(self, damage):
@@ -66,6 +66,6 @@ class Route:
         return self.health > 0
 
     def __str__(self):
-        return "{} is still standing with {} left to climb".format(
+        return "The {} is still standing with {} feet left to climb!".format(
             self.name, self.health
         )
